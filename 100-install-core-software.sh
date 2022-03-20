@@ -63,34 +63,34 @@ sudo pacman -S --noconfirm --needed arc-gtk-theme
 sudo pacman -S --noconfirm --needed arc-darkest-theme-git
 sudo pacman -S --noconfirm --needed arcolinux-arc-themes-2021-sky-git
 sudo pacman -S --noconfirm --needed arcolinux-candy-beauty-git
-sudo pacman -S --noconfirm --needed arcolinux-fish-git
-sudo pacman -S --noconfirm --needed ayu-theme
-sudo pacman -S --noconfirm --needed chromium
+#sudo pacman -S --noconfirm --needed arcolinux-fish-git
+#sudo pacman -S --noconfirm --needed ayu-theme
+#sudo pacman -S --noconfirm --needed chromium
 sudo pacman -S --noconfirm --needed cpuid
 sudo pacman -S --noconfirm --needed discord
 sudo pacman -S --noconfirm --needed file-roller
 sudo pacman -S --noconfirm --needed flameshot-git
 sudo pacman -S --noconfirm --needed gitahead-bin
-sudo pacman -S --noconfirm --needed insync
+#sudo pacman -S --noconfirm --needed insync
 sudo pacman -S --noconfirm --needed meld
-sudo pacman -S --noconfirm --needed nomacs
+#sudo pacman -S --noconfirm --needed nomacs
 sudo pacman -S --noconfirm --needed polkit-gnome
 sudo pacman -S --noconfirm --needed pv
 sudo pacman -S --noconfirm --needed simplescreenrecorder
-sudo pacman -S --noconfirm --needed spotify
+#sudo pacman -S --noconfirm --needed spotify
 sudo pacman -S --noconfirm --needed sublime-text-4
 sudo pacman -S --noconfirm --needed surfn-icons-git
-sudo pacman -S --noconfirm --needed telegram-desktop
+#sudo pacman -S --noconfirm --needed telegram-desktop
 sudo pacman -S --noconfirm --needed the_platinum_searcher-bin
 sudo pacman -S --noconfirm --needed ttf-wps-fonts
 sudo pacman -S --noconfirm --needed upd72020x-fw
-sudo pacman -S --noconfirm --needed vivaldi
-sudo pacman -S --noconfirm --needed vivaldi-ffmpeg-codecs
-sudo pacman -S --noconfirm --needed vivaldi-widevine
-sudo pacman -S --noconfirm --needed vlc
+#sudo pacman -S --noconfirm --needed vivaldi
+#sudo pacman -S --noconfirm --needed vivaldi-ffmpeg-codecs
+#sudo pacman -S --noconfirm --needed vivaldi-widevine
+#sudo pacman -S --noconfirm --needed vlc
 sudo pacman -S --noconfirm --needed wd719x-firmware
-sudo pacman -S --noconfirm --needed wps-office
-sudo pacman -S --noconfirm --needed wps-office-mime
+#sudo pacman -S --noconfirm --needed wps-office
+#sudo pacman -S --noconfirm --needed wps-office-mime
 
 ###############################################################################################
 
@@ -115,6 +115,31 @@ sudo pacman -S --noconfirm --needed edu-candy-beauty-tela-git
 sudo pacman -S --noconfirm --needed edu-papirus-dark-tela-git
 sudo pacman -S --noconfirm --needed edu-papirus-dark-tela-grey-git
 sudo pacman -S --noconfirm --needed edu-vimix-dark-tela-git
+
+
+#nemesis-repo added to /etc/pacman.conf
+
+if grep -q aries /etc/pacman.conf; then
+  echo "aries_repo is already in /etc/pacman.conf"
+else
+echo '
+
+[aries_repo]
+SigLevel = Optional TrustedOnly
+Server = https://peterdauwe.github.io/$repo/$arch' | sudo tee -a /etc/pacman.conf
+fi
+
+sudo pacman -Sy
+
+sudo pacman -S --noconfirm --needed aries-wallpaper1
+#sudo pacman -S --noconfirm --needed edu-candy-beauty-arc-mint-grey-git
+#sudo pacman -S --noconfirm --needed edu-candy-beauty-arc-mint-red-git
+#sudo pacman -S --noconfirm --needed edu-candy-beauty-tela-git
+#sudo pacman -S --noconfirm --needed edu-papirus-dark-tela-git
+#sudo pacman -S --noconfirm --needed edu-papirus-dark-tela-grey-git
+#sudo pacman -S --noconfirm --needed edu-vimix-dark-tela-git
+
+
 
 ###############################################################################################
 
@@ -171,8 +196,8 @@ if grep -q "Arch Linux" /etc/os-release; then
   sudo pacman -S --noconfirm --needed arcolinux-paru-git
   sudo pacman -S --noconfirm --needed arcolinux-root-git
   sudo pacman -S --noconfirm --needed arcolinux-system-config-git
-  sudo pacman -S --noconfirm --needed arcolinux-tweak-tool-git
-  sudo pacman -S --noconfirm --needed arcolinux-variety-git
+  #sudo pacman -S --noconfirm --needed arcolinux-tweak-tool-git
+  #sudo pacman -S --noconfirm --needed arcolinux-variety-git
   sudo pacman -S --noconfirm --needed arcolinux-wallpapers-git
   sudo pacman -S --noconfirm --needed arcolinux-zsh-git
   sudo pacman -S --noconfirm --needed avahi
@@ -191,7 +216,7 @@ if grep -q "Arch Linux" /etc/os-release; then
   sudo pacman -S --noconfirm --needed paru-bin
   sudo pacman -S --noconfirm --needed rate-mirrors-bin
   sudo pacman -S --noconfirm --needed ripgrep
-  sudo pacman -S --noconfirm --needed variety
+  #sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed yay-bin
   sudo pacman -S --noconfirm --needed zsh
   sudo pacman -S --noconfirm --needed zsh-completions
